@@ -1,7 +1,7 @@
 # Setting up a dev container for Go
 *Primary author: Nabiha Choudhury https://github.com/chnabi
 
-*Reviewer: Yohan Choi (is absent)
+*Reviewer: Yohan Choi (is absent) -edit
 
 ## Prerequisties: 
 Before you get started make sure you have all of these: 
