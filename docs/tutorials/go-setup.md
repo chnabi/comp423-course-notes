@@ -2,7 +2,6 @@
 * Primary author: [Nabiha Choudhury](https://github.com/chnabi)
 
 * Reviewer: [Yohan Choi](https://github.com/YummyYohan)
-
 ## Prerequisties: 
 Before you get started make sure you have all of these: 
 
@@ -13,8 +12,7 @@ Before you get started make sure you have all of these:
 3. **Create a GitHub Account:** if you don't already have one, you can sign up at [GitHub](https://github.com/)
 
 4. **Docker installed:** This is necessary for running the dev container. [Get Docker Here](https://www.docker.com/products/docker-desktop/)
-
-5. **Install the VS Code Extension for Go:** Install link provided [here](https://code.visualstudio.com/docs/languages/go)   
+  
 
 # Project Setup: Create your Repository
 ## 1. Create a local directory and initialize Git
@@ -91,7 +89,7 @@ d. Back in your web browser, refresh your GitHub repository to see that the same
 
 The `devcontainer.json` file defines the configuration for your development environment. Here's how to set it up:
 
-## Configuration Details:
+### Configuration Details:
 
 - **`name`**: A descriptive name for your development container. 
 - **`image`**: The Docker image to use. In this case, we use the latest Go development environment image. [Microsoft provides pre-built images optimized for various programming languages.](https://hub.docker.com/r/microsoft/vscode-devcontainers)
@@ -113,7 +111,7 @@ Example `devcontainer.json`
   "postCreateCommand": "go mod tidy"
 }
 ```
-##Step 2. Add `go.mod` Go Dependency Configuration 
+## Step 2. Add `go.mod` Go Dependency Configuration 
 
 `go.mod`
 
@@ -122,7 +120,7 @@ The `go.mod` file lists the Go dependencies needed for the project. It should be
 ```{.go .copy} 
 module go-dev-container-setup
 
-go 1.23.4
+go 1.20
 ```
 ## Step 3. Reopen the Project in a VSCode Dev Contianer
 
