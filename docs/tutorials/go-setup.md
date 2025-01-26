@@ -1,7 +1,7 @@
 # Setting up a dev container for Go
-*Primary author: Nabiha Choudhury https://github.com/chnabi
+* Primary author: [Nabiha Choudhury](https://github.com/chnabi)
 
-*Reviewer: Yohan Choi
+* Reviewer: [Yohan Choi](https://github.com/YummyYohan)
 
 ## Prerequisties: 
 Before you get started make sure you have all of these: 
@@ -16,7 +16,7 @@ Before you get started make sure you have all of these:
 
 5. **Install the VS Code Extension for Go:** Install link provided [here](https://code.visualstudio.com/docs/languages/go)   
 
-## Project Setup: Create your Repository
+# Project Setup: Create your Repository
 ## 1. Create a local directory and initialize Git
 
 a. Open your terminal or Command prompt 
@@ -39,19 +39,103 @@ echo "# Creating a Go dev contianer" > README.md
 git add README.md
 git commit -m "Initial commit with README"
 ```
-#Step 2. Create a Remote Repository on GitHub
+##Step 2. Create a Remote Repository on GitHub
 
 a. Login into your Github account and go to the [Create New Repository](https://github.com/new) page.
 
 b. Fill in the details as shown below: 
 
-* Repository Name: `go-dev-contianer-setup`
+* **Repository Name:** `go-dev-contianer-setup`
 
-* Description: Give your repository a meaningful
+* **Description:** Give your repository a meaningful
  description. ex "Creating a dev container for Go"  
 
-* Do not initilize the repository with a README, .gitignore, or license.
+* **Visibility:** Public
 
-* Click Create Repository
+c. Do not initilize the repository with a README, .gitignore, or license.
+
+d. Click **Create Repository.**
+
+## Step 3. Link your Local Repository to GitHub
+
+a. Add the GitHub repository as a remote: 
+
+```{.cli .copy}
+git remote add origin https://github.com/<your-username>/go-dev-container-setup.git
+```
+Be sure to replace `<your-username>` with your GitHub username. 
+
+b. Check your default branch name with the subcommand `git branch`. If it's not `main`, rename it to `main` with the following command: `git branch -M main`. Old versions of `git` choose the name `master`, but we will prefer to use `main` as the standard branch name.
+
+c. Push local commits to the GitHub repository: 
+
+```{.cli .copy} 
+git push --set-upstream origin main
+```
+> "Understanding the --set-upstream Flag"
+    
+>`git push --set-upstream origin main`: This command pushes the main branch to the remote repository origin. The `--set-upstream` flag sets up the main branch to track the remote branch, meaning future pushes and pulls can be done without specifying the branch name and just writing `git push origin` when working on your local `main` branch. This long flag has a corresponding `-u` short flag.
+
+d. Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been *pushed* to remote. You can use `git log` locally to see the commit ID and message which should match the ID of the most recent commit on GitHub. This is the result of pushing your changes to your remote repository.
+
+# Setting Up the Development Environment
+## Step 1. Add Development Container Configuration 
+
+1. In VS Code, open the `go-dev-container-setup` directory. You can do this via: File > Open Folder.
+
+2. Install the **Dev Container** extension for VS Code.
+
+3. Create a `.devcontainer` directory in the root of your project with the following file inside of this "hidden" configuration directory:
+
+`devcontainer/devcontainer.json`
+
+The `devcontainer.json` file defines the configuration for your development environment. Here's how to set it up:
+
+## Configuration Details:
+
+- **`name`**: A descriptive name for your development container. 
+- **`image`**: The Docker image to use. In this case, we use the latest Go development environment image. [Microsoft provides pre-built images optimized for various programming languages.](https://hub.docker.com/r/microsoft/vscode-devcontainers)
+- **`customizations`**: Adds useful configurations to Visual Studio Code. This includes installing extensions (like the Go extension) and applying specific settings.
+- **`postCreateCommand`**: Commands that run automatically after the container is set up. For Go projects, this could include installing dependencies using `go mod tidy`.
+
+Example `devcontainer.json`
+
+```{.json .copy}
+{
+  "name": "Go Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/go:latest",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["golang.Go"]
+    }
+  },
+  "postCreateCommand": "go mod tidy"
+}
+```
+Step 2. Add `go.mod` Go Dependency Configuration 
+
+`go.mod`
+
+The `go.mod` file lists the Go dependencies needed for the project. It should be in your project's root directory. Here we will include our project name and a version of Go to use.
+
+```{.go .copy} 
+module github.com/<your-username>/go-dev-container-setup
+
+go 1.20
+```
+Step 3. Reopen the Project in a VSCode Dev Contianer
+
+Reopen the project in the container by pressing `Ctrl+Shift+P` (or `Cmd+Shift+P on Mac`), typing "Dev Containers: Reopen in Container," and selecting the option. This may take a few minutes while the image is downloaded and the requirements are installed.
+
+Once your dev container setup completes, close the current terminal tab (trash can), open a new terminal pane within VSCode, and try running `go version` to see your dev container is running a recent version of Go without much effort!
+
+# Part 3. Creating a Simple "Hello World" Program in Go
+
+
+
+
+
+
 
 
