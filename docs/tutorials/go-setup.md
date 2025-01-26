@@ -163,19 +163,19 @@ go build -o hello
 ./hello
 ```
 Both methods will result in `Hello COMP 423!` being printed to the console.
-
 > **Compilation Process**
+> 
+> Generally, the compilation steps are as follows:
+> 
+> - **Compile**: Converts the human-readable program to an assembly file.
+> - **Assemble**: Converts the assembly file to an object file.
+> - **Linking**: Combines object files to create the final executable.
+> 
+> Since Go is a compiled language, when we call `go build -o <filename>`, the Go code is directly compiled into an executable file. Then, we can execute the file using `./<filename>`.
 
->   Generally the compilation steps are as follows: 
-    
->    **Compile:** Human readable program to an assembly file
-    
->    **Assemble:** Assembly file to object file 
-    
->    **Linking:** Object file to final executable file 
-    
->   Since Go is a compiled language when we call `go build -o <filename>` the Go code is directly made into executable file. Then using `./<filename>` we can execute the file. 
+# Conclusion 
 
+Congratulations! You’ve successfully created a simple Go program in a configured development environment. Now you will be able to set up container for future projects in Go. 
 
 
 
