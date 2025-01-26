@@ -2,7 +2,7 @@
 * Primary author: [Nabiha Choudhury](https://github.com/chnabi)
 
 * Reviewer: [Yohan Choi](https://github.com/YummyYohan)
-## Prerequisties: 
+# Prerequisties: 
 Before you get started make sure you have all of these: 
 
 1. **Visual Studio Code (VS Code):** Download and install [here](https://code.visualstudio.com/)
