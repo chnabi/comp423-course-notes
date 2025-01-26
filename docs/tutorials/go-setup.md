@@ -113,18 +113,18 @@ Example `devcontainer.json`
   "postCreateCommand": "go mod tidy"
 }
 ```
-Step 2. Add `go.mod` Go Dependency Configuration 
+##Step 2. Add `go.mod` Go Dependency Configuration 
 
 `go.mod`
 
 The `go.mod` file lists the Go dependencies needed for the project. It should be in your project's root directory. Here we will include our project name and a version of Go to use.
 
 ```{.go .copy} 
-module github.com/<your-username>/go-dev-container-setup
+module go-dev-container-setup
 
-go 1.20
+go 1.23.4
 ```
-Step 3. Reopen the Project in a VSCode Dev Contianer
+## Step 3. Reopen the Project in a VSCode Dev Contianer
 
 Reopen the project in the container by pressing `Ctrl+Shift+P` (or `Cmd+Shift+P on Mac`), typing "Dev Containers: Reopen in Container," and selecting the option. This may take a few minutes while the image is downloaded and the requirements are installed.
 
@@ -132,7 +132,49 @@ Once your dev container setup completes, close the current terminal tab (trash c
 
 # Part 3. Creating a Simple "Hello World" Program in Go
 
+## Step 1. Write the Code 
 
+Create a file in your root directory called `main.go`. In this file write the following code which will print `Hello COMP 423!` to the console. 
+
+```{.go .copy}
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello COMP 423!")
+}
+```
+> The fmt package is one of the standard library packages in Go. 
+
+## Step 2. Two Ways to Run 
+
+a. `go run main.go`: This command will compile and run your program all in one step. 
+
+b. Build a binary file, then execute after. This approach is reminicent of the gcc compliation commands we used in COMP 211. 
+
+* To build the binary file use `go build -o <filename>` in the terminal
+
+* To execute the file use `./<filename>` in the terminal
+
+Here is an example
+``` {.cli .copy} 
+go build -o hello
+./hello
+```
+Both methods will result in `Hello COMP 423!` being printed to the console.
+
+> **Compilation Process**
+
+>   Generally the compilation steps are as follows: 
+    
+>    **Compile:** Human readable program to an assembly file
+    
+>    **Assemble:** Assembly file to object file 
+    
+>    **Linking:** Object file to final executable file 
+    
+>   Since Go is a compiled language when we call `go build -o <filename>` the Go code is directly made into executable file. Then using `./<filename>` we can execute the file. 
 
 
 
