@@ -70,9 +70,9 @@ c. Push local commits to the GitHub repository:
 ```{.cli .copy} 
 git push --set-upstream origin main
 ```
-> "Understanding the --set-upstream Flag"
+!!! note "Understanding the --set-upstream Flag"
+    `git push --set-upstream origin main`: This command pushes the main branch to the remote repository origin. The `--set-upstream` flag sets up the main branch to track the remote branch, meaning future pushes and pulls can be done without specifying the branch name and just writing `git push origin` when working on your local `main` branch. This long flag has a corresponding `-u` short flag.
     
->`git push --set-upstream origin main`: This command pushes the main branch to the remote repository origin. The `--set-upstream` flag sets up the main branch to track the remote branch, meaning future pushes and pulls can be done without specifying the branch name and just writing `git push origin` when working on your local `main` branch. This long flag has a corresponding `-u` short flag.
 
 d. Back in your web browser, refresh your GitHub repository to see that the same commit you made locally has now been *pushed* to remote. You can use `git log` locally to see the commit ID and message which should match the ID of the most recent commit on GitHub. This is the result of pushing your changes to your remote repository.
 
@@ -143,7 +143,9 @@ func main() {
     fmt.Println("Hello COMP 423!")
 }
 ```
-> The fmt package is one of the standard library packages in Go. 
+!!! note
+
+     The fmt package is one of the standard library packages in Go. 
 
 ## Step 2. Two Ways to Run 
 
@@ -161,15 +163,16 @@ go build -o hello
 ./hello
 ```
 Both methods will result in `Hello COMP 423!` being printed to the console.
-> **Compilation Process**
-> 
-> Generally, the compilation steps are as follows:
-> 
-> - **Compile**: Converts the human-readable program to an assembly file.
-> - **Assemble**: Converts the assembly file to an object file.
-> - **Linking**: Combines object files to create the final executable.
-> 
-> Since Go is a compiled language, when we call `go build -o <filename>`, the Go code is directly compiled into an executable file. Then, we can execute the file using `./<filename>`.
+
+!!! info Compilation Process
+ 
+    Generally, the compilation steps are as follows:
+    
+    - **Compile**: Converts the human-readable program to an assembly file.
+    - **Assemble**: Converts the assembly file to an object file.
+    - **Linking**: Combines object files to create the final executable.
+
+    Since Go is a compiled language, when we call `go build -o <filename>`, the Go code is directly compiled into an executable file. Then, we can execute the file using `./<filename>`.
 
 # Conclusion 
 
